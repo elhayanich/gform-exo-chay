@@ -23,16 +23,16 @@ app = Dash(__name__)
 
 #layout
 app.layout = html.Div([
-    html.H1("Travel Analysis Dashboard", style={'textAlign': 'center'}),
+    html.H1("cartes et tout ça", style={'textAlign': 'center'}),
     
     html.Div([
-        html.H4("Select a map to view:"),
+        html.H4("Select a map type to view:"),
         dcc.RadioItems(
             id='map-selector',
             options=[
-                {'label': 'Total Days Spent', 'value': 'days'},
-                {'label': 'Number of Visitors', 'value': 'visitors'},
-                {'label': 'Travel Connections', 'value': 'connections'}
+                {'label': 'filter by nb de jours spent', 'value': 'days'},
+                {'label': 'filter by nbr de visiteurs', 'value': 'visitors'},
+                {'label': 'filter by travel connections', 'value': 'connections'}
             ],
             value='days',
             inline=True
@@ -63,7 +63,7 @@ def update_map(map_type):
             locations='country',
             locationmode='country names',
             color='total_days',
-            title='Total Days Spent in Each Country',
+            title='Total days Spent in each country',
             color_continuous_scale='Blues'
         )
     elif map_type == 'visitors':
@@ -72,7 +72,7 @@ def update_map(map_type):
             locations='country',
             locationmode='country names',
             color='num_visitors',
-            title='Number of Visitors in Each Country',
+            title='Number of visitors in each country',
             color_continuous_scale='Greens'
         )
     elif map_type == 'connections':
